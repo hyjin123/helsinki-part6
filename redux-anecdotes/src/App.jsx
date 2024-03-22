@@ -30,10 +30,15 @@ const App = () => {
     });
   };
 
+  // to sort the anecdotes by number of votes
+  const compare = (a, b) => {
+    return b.votes - a.votes;
+  };
+
   return (
     <div>
       <h2>Anecdotes</h2>
-      {anecdotes.map((anecdote) => (
+      {anecdotes.sort(compare).map((anecdote) => (
         <div key={anecdote.id}>
           <div>{anecdote.content}</div>
           <div>
